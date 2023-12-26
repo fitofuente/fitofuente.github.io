@@ -16,6 +16,10 @@ app.secret_key = os.getenv("SECRET_KEY")
 # Ensure templates are auto-reloaded
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 
+# Check if temp folder doesn't exists
+if not os.path.exists("./temp"):
+    os.makedirs("./temp")
+
 # Set temporary folder
 app.config["UPLOAD_FOLDER"] = "./temp"
 
