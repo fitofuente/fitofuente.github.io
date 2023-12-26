@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Split PDF
+{% endblock %}
+
+{% block main %}
+    {% if session["files"] %}
+        <script>
+            sessionStorage.setItem("filename", '{{ session["files"][0]["name"] }}')
+        </script>
+    {% endif %}
+    <!-- Document reader -->
+    <section id="general_panel" class="tools_general_style">
+        <button id="bttn_zoom_in" title="Zoom in" type="button"><i class="fa-solid fa-magnifying-glass-plus fa-xl" style="color: #f8f8f8;"></i></button>
+        <button id="bttn_zoom_out" title="Zoom out" type="button"><i class="fa-solid fa-magnifying-glass-minus fa-xl" style="color: #f8f8f8;"></i></button>
+        <button id="bttn_fix_zoom" title="Restart zoom and position" type="button"><i class="fa-solid fa-arrows-up-down-left-right fa-xl" style="color: #f8f8f8;"></i></i></button>
+        <button id="bttn_move" title="Move" type="button"><i class="fa-solid fa-hand fa-xl" style="color: #f8f8f8;"></i></button>
+    </section>
+    <section id="viewer_container" class="pdf_viewer_container" style="color: white;">
+        <div id="viewer" class="viewer" data-edit="false" style="top: 0px; left: 0px;">
+            <!-- JS Generated -->
+        </div>
+    </section>
+    <!-- End of Document -->
+    <!-- Split PDF form -->
+    <form action="/{{ redirect }}" class="form_split" enctype="multipart/form-data" id="form_op" method="POST">
+        <div class="split_box">
+            <div class="range">
+                <input autocomplete="off" name="from" type="text" value="1">
+                <i class="fa-solid fa-arrows-left-right-to-line fa-xl" style="color: #f8f8f8;"></i>
+                <input autocomplete="off" name="to" type="text" value="1">
+            </div>
+            <button form="form_op" type="submit">Split</button>
+        </div>
+    </form>
+{% endblock %}

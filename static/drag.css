@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Roboto+Condensed&family=Roboto:wght@300&display=swap');
+
+/* Variables */
+:root
+{
+    /* Colors */
+    --general_bg_color: #212123;
+    --general_green: #00A062;
+    --general_white_color: #f8f8f8;
+    --header_color: #191919;
+    --modal_color: #363638;
+    --overshadow_color: #212123c7;
+    --title_color: #FCFCFC;
+
+    /* Size */
+    --bttn_to_pdf_size: 140px;
+    --footer_size: 50px;
+    --header_size: 72px;
+    --img_size: 2.3em;
+}
+
+/* DragStart (dragged file == df; dragstart == ds) */
+[data-id=file] *
+{
+    pointer-events: none !important;
+    margin-bottom: 0px !important;
+}
+
+[data-id=file]:hover
+{
+    cursor: grab;
+}
+
+.ds_waiting_file
+{
+    opacity: 0.2;
+}
+
+/* DragEnter */
+.de_hover_simulation
+{
+    border-bottom: 1px solid var(--general_white_color);
+    border-top: 1px solid var(--general_white_color);
+}
+
+/* Drop */
+.d_success
+{
+    border-bottom: 1px solid var(--general_green);
+    border-top: 1px solid var(--general_green);
+}
+
+.d_fail
+{
+    border-bottom: 1px solid var(--fail_color);
+    border-top: 1px solid var(--fail_color);
+}

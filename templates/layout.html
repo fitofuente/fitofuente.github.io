@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Free online PDF editor">
+    <meta name="author" content="Fito Fuente">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Third party CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+    <!-- User CSS -->
+    <link rel="stylesheet" href="../static/styles.css">
+    <link rel="stylesheet" href="../static/drag.css">
+    <link rel="stylesheet" href="../static/read.css">
+    <title>PDF Editor: {% block title %}{% endblock %}</title>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <a href="/"><p>Online PDF Editor</p></a>
+            <a href="http://www.fitofuente.com" target="_blank"><img class="me_png" src="../static/assets/me.png"></a>
+        </header>
+        {% if get_flashed_messages() %}
+            <div class="alert alert-dark" role="alert">
+                <button aria-label="Close"  class="btn-close alert-dismissible" data-bs-dismiss="alert" type="button"></button>
+                {% for message in get_flashed_messages() %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+        {% block main %}{% endblock %}
+        <footer>
+            <p>Online PDF Editor <span id="year"></span></p>
+        </footer>
+    </div>
+    <!-- Third party JS (Bootstrap)-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <!-- (Font Awesome) -->
+    <script src="https://kit.fontawesome.com/ca0329de9a.js" crossorigin="anonymous"></script>
+        <!-- (PDF.js) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.0.269/pdf.min.mjs" type="module"></script>
+    <!-- User JS -->
+    <script src="../static/helper.js" type="module"></script>
+    <script src="../static/main.js" type="module"></script>
+    <script src="../static/style.js" type="module"></script>
+</body>
+</html>

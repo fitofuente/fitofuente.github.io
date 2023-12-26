@@ -1,0 +1,301 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Roboto+Condensed&family=Roboto:wght@300&display=swap');
+
+/* Variables */
+:root
+{
+    /* Colors */
+    --general_bg_color: #212123;
+    --general_green: #00A062;
+    --general_white_color: #f8f8f8;
+    --header_color: #191919;
+    --modal_color: #363638;
+    --overshadow_color: #212123c7;
+    --title_color: #FCFCFC;
+
+    /* Size */
+    --bttn_to_pdf_size: 140px;
+    --footer_size: 50px;
+    --header_size: 72px;
+    --img_size: 2.3em;
+}
+
+/* General */
+*
+{
+    text-decoration: none !important;
+}
+
+body{
+    background-color: var(--general_bg_color);
+}
+
+button *
+{
+    pointer-events: none !important;
+}
+
+/* HEADER */
+.header
+{
+    align-items: center;
+    border-bottom: 1px solid var(--header_color);
+    display: flex;
+    justify-content: space-between;
+    height: var(--header_size);
+    padding: 0 16px;
+    width: 100%;
+}
+
+/* * Website Title * */
+.header p
+{
+    color: var(--title_color);
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 24px;
+    margin: 0 !important;
+    text-shadow: 0px 0px 4px var(--header_color);
+}
+/* * FitoFuente * */
+.me_png
+{
+    border: 1px solid var(--general_green);
+    border-radius: 50%;
+    height: 48px;
+    width: 48px;
+}
+
+/* INDEX OPTIONS */
+.pdf_options
+{
+    align-items: center;
+    display: flex;
+    height: calc(100vh - (var(--header_size) + var(--footer_size)));
+    justify-content: center;
+    width: 100%;
+}
+
+.pdf_options form
+{
+    flex-wrap: wrap;
+}
+
+.pdf_options form button
+{
+    border: 2px solid var(--general_green);
+    border-radius: 10px;
+    height: var(--bttn_to_pdf_size);
+    min-height: 100px;
+    margin: 8px;
+    width: var(--bttn_to_pdf_size);
+    min-width: 100px;
+}
+
+.pdf_options form button:hover
+{
+    box-shadow: 0px 0px 3px 0.5px var(--general_green);
+}
+
+.pdf_options form button > div
+{
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.split_icon
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+}
+
+/* Loading Screen */
+.loading_screen_hide
+{
+    display: none !important;
+}
+.loading_screen
+{
+    background-color: #212123c7;
+    width: 100%;
+    /*Position*/
+    position: absolute;
+    top: var(--header_size);
+    left: 0;
+    z-index: 10000;
+}
+
+.loading_screen div
+{
+    /*Position*/
+    position: absolute;
+    top: calc(100% - (var(--footer_size) + 55%));
+    left: auto;
+    z-index: 20000;
+}
+
+/* Download Modal */
+.download_modal
+{
+    align-items: center;
+    background-color: var(--modal_color);
+    border: 1px solid var(--general_green);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    justify-content: space-evenly;
+    width: 300px;
+    /*Position*/
+    position: absolute;
+    top: calc(100% - (var(--footer_size) + 55%));
+    left: calc(50vw - 150px);
+    z-index: 30000;
+}
+
+.download_modal button
+{
+    background-color: var(--header_color);
+    border: none;
+    border-radius: 10px;
+    color: #00A062;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    height: fit-content;
+    padding: 8px;
+    width: fit-content;
+}
+
+.download_modal button:hover
+{
+    background-color: var(--general_green);
+    color: var(--general_white_color);
+}
+
+.overlay
+{
+    background-color: #212123c7;;
+    height: 100%;
+    width: 100%;
+    /*Position*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 20000;
+}
+
+/* FOOTER */
+footer
+{
+    align-items: center;
+    border-top: 1px solid var(--header_color);
+    display: flex;
+    height: var(--footer_size);
+    justify-content: center;
+    width: 100%;
+}
+
+footer p
+{
+    color: var(--general_white_color);
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+    font-size: small;
+    margin: 0 !important;
+    text-shadow: 0px 0px 4px var(--general_bg_color);
+}
+
+/* ### standby.html ### */
+/* ### Columns and rows ### */
+.row_container
+{
+    align-items: center;
+    column-gap: 5%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start !important;
+    row-gap: 25px;
+}
+
+.col_file
+{
+    align-items: center;
+    border-radius: 10px;
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: calc(var(--img_size) + 3rem);
+    width: 76px;
+    max-width: 76px;
+    min-width: fit-content;
+}
+
+
+/* ### PDF files ### */
+/* Thumbnails */
+.imgs_ready
+{
+    font-size: var(--img_size) !important;
+}
+
+/* Button to add more files (pending) */
+.add_file
+{
+    align-items: center;
+    background-color: #f8f8f818;
+    border: 1px solid var(--general_green);
+    border-radius: 10px;
+    color: var(--general_green);
+    display: flex;
+    height: 45px;
+    justify-content: center;
+    width: 45px;
+}
+
+.add_file:hover
+{
+    background-color: var(--general_green);
+    color: var(--general_white_color);
+}
+
+.bttn_stdby
+{
+    display: flex;
+    justify-content: center;
+    margin: 48px 2% 24px;
+}
+
+.bttn_stdby button
+{
+    background-color: var(--header_color);
+    border: 1px solid var(--general_green);
+    border-radius: 10px;
+    color: #00A062;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    height: fit-content;
+    padding: 8px;
+    width: 120px;
+}
+
+.bttn_stdby button:hover
+{
+    background-color: var(--general_green);
+    color: var(--general_white_color);
+}
+
+/* MEDIA QUERIES */
+@media screen and (max-height: 700px) and (max-width: 350px)
+{
+    .pdf_options
+    {
+        margin: calc((var(--header_size) + var(--footer_size)) - 64px) auto;
+    }
+}

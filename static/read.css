@@ -1,0 +1,237 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Roboto+Condensed&family=Roboto:wght@300&display=swap');
+
+/* Variables */
+:root
+{
+    /* Colors */
+    --general_bg_color: #212123;
+    --general_green: #00A062;
+    --general_white_color: #f8f8f8;
+    --header_color: #191919;
+    --modal_color: #363638;
+    --overshadow_color: #212123c7;
+    --overshadow_low_color: #2121238c;
+    --scroll_color: #0074A1;
+    --title_color: #FCFCFC;
+
+    /* Size */
+    --bttn_to_pdf_size: 140px;
+    --footer_size: 50px;
+    --header_size: 72px;
+    --img_size: 2.3em;
+}
+
+/* General Tools */
+.tools_general_style
+{
+    align-items: center;
+    background-color: var(--modal_color); /* Change this later */
+    border-bottom: 1px solid var(--header_color);
+    border-radius: 4px;
+    display: flex;
+    height: calc(var(--header_size) / 1.5);
+    margin: 4px 0px 12px;
+    padding: 12px;
+    position: relative;
+    width: 100%;
+}
+
+.tools_general_style button
+{
+    background-color: transparent;
+    height: 40px;
+    border: none;
+    border-radius: 6px;
+    margin: 0px 9px;
+    width: 40px;
+}
+
+.tools_general_style button:hover
+{
+    border: 1px solid var(--general_white_color);
+}
+
+
+.d_none
+{
+    display: none !important;
+}
+
+/* Change from arrow to drag (hand) */
+.set_move
+{
+    cursor: grab !important;
+}
+
+/* Viewer */
+.pdf_viewer_container
+{
+    display: flex;
+    height: calc(85vh - (var(--header_size) + var(--footer_size) + (var(--header_size) / 1.5)));
+    justify-content: center;
+    margin: 16px auto;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 100%;
+
+    /* Cutomize scroll bar for Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: var(--modal_color) transparent;
+}
+
+/* Customize scroll bar in Chrome and Safari */
+.pdf_viewer_container::-webkit-scrollbar
+{
+    width: 8px;
+}
+.pdf_viewer_container::-webkit-scrollbar-thumb
+{
+    background-color: var(--modal_color);
+    border: 1px solid var(--general_green);
+    border-radius: 6px;
+}
+.pdf_viewer_container::-webkit-scrollbar-track
+{
+    background-color: var(--modal_color);
+}
+
+.pdf_viewer_container .viewer
+{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+}
+
+/* Pages */
+.page
+{
+    margin: 0px auto 10px;
+    position: relative;
+}
+
+.canvas_wrapper
+{
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+}
+
+.canvas_wrapper canvas
+{
+    display: block;
+}
+
+/* Text Layer */
+.text_layer
+{
+    inset: 0;
+    line-height: 1;
+    opacity: 0.20;
+    overflow: hidden;
+    text-align: initial;
+    /* Adjust text size for devices */
+    text-size-adjust: none;
+    /* Adjust text for Chrome and Safari */
+    -webkit-text-size-adjust: none;
+    /* Adjust text for Firefox */
+    -moz-text-size-adjust: none;
+    transform-origin: 0% 0%;
+    /*Position*/
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 10000;
+}
+
+/* Span with the texts */
+.text_layer :is(span, br)
+{
+    color: transparent;
+    cursor: text;
+    position: absolute;
+    transform-origin: 0% 0%;
+    white-space: pre;
+}
+
+/* Form */
+.form_split
+{
+    height: fit-content;
+    margin: 16px 0;
+}
+.split_box
+{
+    align-items: center;
+    display: flex;
+    height: 100px;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.range
+{
+    align-items: center;
+    display: flex;
+    margin: 0 auto;
+}
+.range input
+{
+    border: 1px solid var(--general_green);
+    border-radius: 6px;
+    text-align: center;
+    width: 42px;
+}
+.range :nth-child(2)
+{
+    margin: 0 16px;
+}
+.form_split button
+{
+    background-color: var(--header_color);
+    border: 1px solid var(--general_green);
+    border-radius: 10px;
+    color: #00A062;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    height: fit-content;
+    padding: 8px;
+    width: 120px;
+}
+.form_split button:hover
+{
+    background-color: var(--general_green);
+    color: var(--general_white_color);
+}
+
+::selection { background:rgba(0, 255, 34, 0.6); }
+::-moz-selection { background:rgba(0, 255, 34, 0.6); }
+
+/* MEDIA QUERIES */
+@media screen and (max-height: 700px) and (max-width: 350px)
+{
+    /* Customize scroll bars */
+    .pdf_viewer_container
+    {
+        overflow: scroll;
+    }
+    /* Customize scroll bar in Chrome and Safari */
+    .pdf_viewer_container::-webkit-scrollbar
+    {
+        display: none;
+    }
+    /* Center elements */
+    .tools_general_style
+    {
+        justify-content: space-around;
+    }
+    /*  Hide move bttn*/
+    #bttn_move
+    {
+        display: none;
+    }
+}
